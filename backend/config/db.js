@@ -13,6 +13,9 @@ class Database {
     if (this.connection) return this.connection;
     try {
       const uri = process.env.MONGO_URI || 'mongodb://127.0.0.1:27017/snaplink';
+      if (uri.includes('<your-cluster>')) {
+        throw new Error('Please replace the <your-cluster> placeholder in MONGO_URI with your actual MongoDB Atlas connection string.');
+      }
       this.connection = await mongoose.connect(uri);
       console.log('MongoDB Connected');
       return this.connection;
