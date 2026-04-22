@@ -29,6 +29,11 @@ app.use('/api/links', linkRoutes);
 app.use('/api/analytics', analyticsRoutes);
 app.use('/api/admin', adminRoutes);
 
+// Health check route for the root
+app.get('/', (req, res) => {
+  res.send('SnapLink API is running...');
+});
+
 // Public Redirect Route (Should be last)
 app.get('/:shortCode', LinkController.redirectShortUrl);
 
