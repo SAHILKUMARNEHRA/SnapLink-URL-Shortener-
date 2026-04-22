@@ -8,6 +8,7 @@ import db from './config/db.js';
 import authRoutes from './routes/authRoutes.js';
 import linkRoutes from './routes/linkRoutes.js';
 import analyticsRoutes from './routes/analyticsRoutes.js';
+import adminRoutes from './routes/adminRoutes.js';
 import LinkController from './controllers/LinkController.js';
 
 dotenv.config();
@@ -26,6 +27,7 @@ app.use(useragent.express());
 app.use('/api/auth', authRoutes);
 app.use('/api/links', linkRoutes);
 app.use('/api/analytics', analyticsRoutes);
+app.use('/api/admin', adminRoutes);
 
 // Public Redirect Route (Should be last)
 app.get('/:shortCode', LinkController.redirectShortUrl);

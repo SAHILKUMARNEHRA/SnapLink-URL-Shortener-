@@ -25,6 +25,9 @@ const Navbar = () => {
           <div className="flex items-center gap-4">
             {user ? (
               <>
+                {user.isAdmin && (
+                  <Link to="/admin" className="text-slate-600 hover:text-primary font-medium">Admin</Link>
+                )}
                 <Link to="/dashboard" className="text-slate-600 hover:text-primary font-medium">Dashboard</Link>
                 <div className="flex items-center gap-2 ml-4 pl-4 border-l border-slate-200">
                   <User className="h-5 w-5 text-slate-400" />
